@@ -1,5 +1,6 @@
 from evdev import InputDevice, categorize, ecodes
 import threading
+import time
 
 status = 0
 is_running = True
@@ -19,6 +20,7 @@ def getEvents():
             if event.code == ecodes.KEY_VOLUMEUP and event.value == 2:        
                 #print("AB Shutter3 was released.\n")
                 status = 2
+        time.sleep(0.01)
 
 t = threading.Thread(target=getEvents)
 t.start()
