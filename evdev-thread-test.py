@@ -1,11 +1,18 @@
 from evdev import InputDevice, categorize, ecodes
 import threading
 import time
+import os
+import sys
 
 status = 0
 is_running = True
+device_path = '/dev/input/event5'
 
-input = InputDevice('/dev/input/event5')
+if not os.path.exists(device_path):
+    print('device {} not found'.format(device_path))
+    sys.exit()
+
+input = InputDevice(device_path)
 print(input)
 
 def getEvents():
