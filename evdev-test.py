@@ -4,7 +4,9 @@ input = InputDevice('/dev/input/event5')
 
 #prints out device info at start
 print(input)
-#print(gamepad.capabilities(verbose=True))
+#print(input.capabilities(verbose=True))
+#print(ecodes.KEY_VOLUMEUP)
+#print(ecodes.KEY[115])
 
 #evdev takes care of polling the controller in a loop
 for event in input.read_loop():
